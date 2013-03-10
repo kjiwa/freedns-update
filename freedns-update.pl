@@ -119,7 +119,7 @@ sub main
 	my $domain = $args{domain};
 	my $key = $args{key};
 	my $my_ip = $args{ip};
-	my $ns = $args{ns};
+	my $ns = $args{nameserver};
 	my $force = $args{force};
 	my $simulate = $args{simulate};
 	my $print = $args{print};

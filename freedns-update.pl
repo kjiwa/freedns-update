@@ -53,7 +53,7 @@ sub update_host_ip_address
 	my $url = sprintf(qq(http://freedns.afraid.org/dynamic/update.php?%s&address=%s), $key, $ip);
 	my $content = get($url);
 
-	unless ($content =~ m/(ERROR: Address \S+ has not changed|Updated \d+ host\(s\) .+ to \S+ in .+ seconds)/) {
+	unless ($content =~ m/(ERROR: Address \S+ has not changed|Updated \d+ host\(s\) .+ to \S+ in .+ seconds|Updated \S+ to \S+ in .+ seconds)/) {
 		die(sprintf(qq(Error updating domain %s to IP %s: %s), $domain, $ip, $content));
 	}
 }

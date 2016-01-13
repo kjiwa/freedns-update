@@ -12,11 +12,11 @@ use Socket;
 # @return {string} The current IP address.
 sub get_my_ip_address
 {
-  my $url = qq(http://freedns.afraid.org/dynamic/check.php);
+  my $url = 'http://freedns.afraid.org/dynamic/check.php';
   my $content = get($url);
   die($!) unless defined($content);
 
-  $content =~ m/Detected IP : (\S+)\n/ or die("Unable to extract IP address");
+  $content =~ m/Detected IP : (\S+)\n/ or die('Unable to extract IP address');
   my $ip = $1;
   return $ip;
 }
@@ -29,7 +29,7 @@ sub get_ip_address_by_hostname
   my ($domain) = @_;
 
   my $host = gethostbyname($domain);
-  die(sprintf(qq(Unable to determine IP address for %s), $domain))
+  die(sprintf('Unable to determine IP address for %s', $domain))
       unless defined($host);
 
   my $ip = inet_ntoa($host);
@@ -53,7 +53,7 @@ sub get_ip_address_by_hostname_from_ns
     return $ip if $ip;
   }
 
-  die(sprintf(qq(Unable to determine IP address for %s), $domain));
+  die(sprintf('Unable to determine IP address for %s', $domain));
 }
 
 # Updates the IP address in FreeDNS.
